@@ -1,24 +1,32 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "codebar-ag/filament-codemirror",
+    "description": "This is my package filament-codemirror",
     "keywords": [
-        ":vendor_name",
+        "CodebarAg",
         "laravel",
-        ":package_slug"
+        "filament-codemirror"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/codebar-ag/filament-codemirror",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
-            "role": "Developer"
+            "name": "Sebastian Bürgin",
+            "email": "sebastian.fix@buergin.ch",
+            "homepage": "https://www.codebar.ch",
+            "role": "Sofware-Engineer"
+        },
+        {
+            "name": "Rhys Lees",
+            "role": "Software-Developer"
         }
     ],
     "require": {
         "php": "^8.2",
-        "spatie/laravel-package-tools": "^1.16",
-        "illuminate/contracts": "^10.0||^11.0"
+        "filament/infolists": "^3.2",
+        "filament/support": "^3.2",
+        "filament/tables": "^3.2",
+        "illuminate/contracts": "^10.0||^11.0",
+        "spatie/laravel-package-tools": "^1.16"
     },
     "require-dev": {
         "laravel/pint": "^1.14",
@@ -35,19 +43,19 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "CodebarAg\\FilamentCodemirror\\": "src/",
+            "CodebarAg\\FilamentCodemirror\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/",
+            "CodebarAg\\FilamentCodemirror\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
     "scripts": {
         "post-autoload-dump": "@composer run prepare",
-        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
+        "clear": "@php vendor/bin/testbench package:purge-filament-codemirror --ansi",
         "prepare": "@php vendor/bin/testbench package:discover --ansi",
         "build": [
             "@composer run prepare",
@@ -73,10 +81,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "CodebarAg\\FilamentCodemirror\\FilamentCodemirrorServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "FilamentCodemirror": "CodebarAg\\FilamentCodemirror\\Facades\\FilamentCodemirror"
             }
         }
     },
