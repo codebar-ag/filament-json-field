@@ -13,9 +13,9 @@ Filament Json Field is a Filament wrapper for Codemirror.
 
 ## 🛠 Requirements
 
-| Package 	 | PHP 	 | Laravel 	  | Filament Infolists | Filament Support | Filament Tables |
-|-----------|-------|------------|--------------------|------------------|-----------------|
-| v1.0      | 8.2   | 10.0, 11.0 | 3.2                | 3.2              | 3.2             |
+| Package 	 | PHP 	 | Laravel 	     | Filament Infolists | Filament Support | Filament Tables |
+|-----------|-------|---------------|--------------------|------------------|-----------------|
+| v1.0      | ^8.1  | ^10.45, ^11.0 | ^3.2               | ^3.2             | ^3.2            |
 
 
 ## ⚙️ Installation
