@@ -5,7 +5,6 @@ import "codemirror/src/codemirror.js";
 import "codemirror/src/modes";
 
 import "codemirror/mode/javascript/javascript";
-import "codemirror/mode/";
 
 import "codemirror/addon/edit/closebrackets";
 import "codemirror/addon/edit/closetag";

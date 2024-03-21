@@ -1,12 +1,12 @@
 {
-    "name": "codebar-ag/filament-codemirror",
-    "description": "This is my package filament-codemirror",
+    "name": "codebar-ag/filament-json-field",
+    "description": "This is my package filament-json-field",
     "keywords": [
         "CodebarAg",
         "laravel",
-        "filament-codemirror"
+        "filament-json-field"
     ],
-    "homepage": "https://github.com/codebar-ag/filament-codemirror",
+    "homepage": "https://github.com/codebar-ag/filament-json-field",
     "license": "MIT",
     "authors": [
         {
@@ -26,6 +26,7 @@
         "filament/support": "^3.2",
         "filament/tables": "^3.2",
         "illuminate/contracts": "^10.0||^11.0",
+        "livewire/livewire": "^3.4",
         "spatie/laravel-package-tools": "^1.16"
     },
     "require-dev": {
@@ -43,19 +44,19 @@
     },
     "autoload": {
         "psr-4": {
-            "CodebarAg\\FilamentCodemirror\\": "src/",
-            "CodebarAg\\FilamentCodemirror\\Database\\Factories\\": "database/factories/"
+            "CodebarAg\\FilamentJsonField\\": "src/",
+            "CodebarAg\\FilamentJsonField\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "CodebarAg\\FilamentCodemirror\\Tests\\": "tests/",
+            "CodebarAg\\FilamentJsonField\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
     "scripts": {
         "post-autoload-dump": "@composer run prepare",
-        "clear": "@php vendor/bin/testbench package:purge-filament-codemirror --ansi",
+        "clear": "@php vendor/bin/testbench package:purge-filament-json-field --ansi",
         "prepare": "@php vendor/bin/testbench package:discover --ansi",
         "build": [
             "@composer run prepare",
@@ -81,10 +82,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "CodebarAg\\FilamentCodemirror\\FilamentCodemirrorServiceProvider"
+                "CodebarAg\\FilamentJsonField\\FilamentJsonFieldServiceProvider"
             ],
             "aliases": {
-                "FilamentCodemirror": "CodebarAg\\FilamentCodemirror\\Facades\\FilamentCodemirror"
+                "FilamentJsonField": "CodebarAg\\FilamentJsonField\\Facades\\FilamentJsonField"
             }
         }
     },

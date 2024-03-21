@@ -1,5 +1,5 @@
 <?php
 
-use CodebarAg\FilamentCodemirror\Tests\TestCase;
+use CodebarAg\FilamentJsonField\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);

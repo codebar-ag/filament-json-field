@@ -1,8 +1,8 @@
 import * as esbuild from 'esbuild';
 
 esbuild.build({
-    entryPoints: ['./resources/js/codemirror.js'],
-    outfile: './dist/codemirror.js',
+    entryPoints: ['./resources/js/filament-json-field.js'],
+    outfile: './dist/filament-json-field.js',
     bundle: true,
     mainFields: ['module', 'main'],
     platform: 'browser',

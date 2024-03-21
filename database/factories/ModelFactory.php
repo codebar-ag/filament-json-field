@@ -1,6 +1,6 @@
 <?php
 
-namespace CodebarAg\FilamentCodemirror\Database\Factories;
+namespace CodebarAg\FilamentJsonField\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 

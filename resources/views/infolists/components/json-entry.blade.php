@@ -20,8 +20,8 @@
                         }
                     @endphp
                     gutters: [
-                        'CodeMirror-linenumbers',
-                        {{ json_encode($getHasFoldingCode()) }} ? 'CodeMirror-foldgutter' : ''
+                        {{ json_encode($getHasLineNumbers()) }} ? 'CodeMirror-linenumbers' : '',
+                        {{ json_encode($getHasFoldingCode()) }} ? 'CodeMirror-foldgutter' : '',
                     ],
                     foldOptions: {
                         widget: (from, to) => {

@@ -1,58 +1,139 @@
-# This is my package filament-codemirror
+<img src="https://banners.beyondco.de/Filament%20Json%20Field.png?theme=light&packageManager=composer+require&packageName=codebar-ag%2Ffilament-json-field&pattern=circuitBoard&style=style_2&description=A+Laravel+Filament Json Field+integration.&md=1&showWatermark=1&fontSize=150px&images=home&widths=500&heights=500">
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/codebar-ag/filament-codemirror.svg?style=flat-square)](https://packagist.org/packages/codebar-ag/filament-codemirror)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/codebar-ag/filament-codemirror/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/codebar-ag/filament-codemirror/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/codebar-ag/filament-codemirror/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/codebar-ag/filament-codemirror/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/codebar-ag/filament-codemirror.svg?style=flat-square)](https://packagist.org/packages/codebar-ag/filament-codemirror)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/codebar-ag/filament-json-field.svg?style=flat-square)](https://packagist.org/packages/codebar-ag/filament-json-field)
+[![Total Downloads](https://img.shields.io/packagist/dt/codebar-ag/filament-json-field.svg?style=flat-square)](https://packagist.org/packages/codebar-ag/filament-json-field)
+[![run-tests](https://github.com/codebar-ag/filament-json-field/actions/workflows/run-tests.yml/badge.svg)](https://github.com/codebar-ag/filament-json-field/actions/workflows/run-tests.yml)
+[![PHPStan](https://github.com/codebar-ag/filament-json-field/actions/workflows/phpstan.yml/badge.svg)](https://github.com/codebar-ag/filament-json-field/actions/workflows/phpstan.yml)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+This package was developed to give you a quick start to creating tickets via the Filament Json Field API.
 
-## Support us
+## 💡 What is Filament Json Field?
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/filament-codemirror.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/filament-codemirror)
+Filament Json Field is a Filament wrapper for Codemirror.
 
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
+## 🛠 Requirements
 
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+| Package 	 | PHP 	 | Laravel 	  | Filament Infolists | Filament Support | Filament Tables |
+|-----------|-------|------------|--------------------|------------------|-----------------|
+| v1.0      | 8.2   | 10.0, 11.0 | 3.2                | 3.2              | 3.2             |
 
-## Installation
+
+## ⚙️ Installation
 
 You can install the package via composer:
 
 ```bash
-composer require codebar-ag/filament-codemirror
-
+composer require codebar-ag/filament-json-field
 php artisan filament:assets
 ```
 
-## To compile the assets for distribution
+
+## Usage
+
+Forms: 
+```php
+use CodebarAg\FilamentJsonField\Forms\Components\JsonInput;
+
+...
+
+public function form(Form $form): Form
+{
+    return $form
+        ->schema([
+            JsonInput::make('json')
+                ->label('JSON')
+                ->lineNumbers(true)
+                ->autoCloseBrackets(true)
+                ->darkTheme(true)
+                ->foldingCode(true),
+        ]);
+}
+...
+````
+
+Infolists:
+```php
+use CodebarAg\FilamentJsonField\Forms\Components\JsonEntry;
+
+...
+
+public function form(Form $form): Form
+{
+    return $form
+        ->schema([
+            JsonEntry::make('json')
+                ->label('JSON')
+                ->lineNumbers(true)
+                ->autoCloseBrackets(true)
+                ->darkTheme(true)
+                ->foldingCode(true),
+        ]);
+}
+...
+````
+
+### Options
+
+The following options are currently supported:
+
+| Request 	           | Supported 	 |
+|---------------------|:-----------:|
+| Line Numbers        |      ✅      |
+| Auto Close Brackets |      ✅      |
+| Dark Theme          |      ✅      |
+| Folding Code        |      ✅      |
+
+## 🚧 Testing
+
+Copy your own phpunit.xml-file.
+
+```bash
+cp phpunit.xml.dist phpunit.xml
+```
+
+Run the tests:
+
+```bash
+./vendor/bin/pest
+```
+
+## 🚧 Building
+
 ```bash
 node bin/build
 ```
 
-## Testing
+Note: there is no output, but the build will be in the `dist` directory.
+
+## 📝 Changelog
+
+Please see [CHANGELOG](CHANGELOG.md) for recent changes.
+
+## ✏️ Contributing
+
+Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
 
 ```bash
 composer test
 ```
 
-## Changelog
+### Code Style
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+```bash
+./vendor/bin/pint
+```
 
-## Contributing
+## 🧑‍💻 Security Vulnerabilities
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+Please review [our security policy](.github/SECURITY.md) on reporting security vulnerabilities.
 
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
-
-## Credits
-
-- [Rhys Lees](https://github.com/43909932+RhysLees)
+## 🙏 Credits
+- [Rhys Lees](https://github.com/RhysLees)
+- [Sebastian Fix](https://github.com/StanBarrows)
 - [All Contributors](../../contributors)
+- [Skeleton Repository from Spatie](https://github.com/spatie/package-skeleton-laravel)
+- [Laravel Package Training from Spatie](https://spatie.be/videos/laravel-package-training)
 
-## License
+## 🎭 License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+The MIT License (MIT). Please have a look at [License File](LICENSE.md) for more information.

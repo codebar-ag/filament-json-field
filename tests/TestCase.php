@@ -1,8 +1,8 @@
 <?php
 
-namespace CodebarAg\FilamentCodemirror\Tests;
+namespace CodebarAg\FilamentJsonField\Tests;
 
-use CodebarAg\FilamentCodemirror\FilamentCodemirrorServiceProvider;
+use CodebarAg\FilamentJsonField\FilamentJsonFieldServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -13,14 +13,14 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'CodebarAg\\FilamentCodemirror\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'CodebarAg\\FilamentJsonField\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 
     protected function getPackageProviders($app)
     {
         return [
-            FilamentCodemirrorServiceProvider::class,
+            FilamentJsonFieldServiceProvider::class,
         ];
     }
 
@@ -29,7 +29,7 @@ class TestCase extends Orchestra
         config()->set('database.default', 'testing');
 
         /*
-        $migration = include __DIR__.'/../database/migrations/create_filament-codemirror_table.php.stub';
+        $migration = include __DIR__.'/../database/migrations/create_filament-json-field_table.php.stub';
         $migration->up();
         */
     }
