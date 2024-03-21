@@ -1,4 +1,4 @@
-<img src="https://banners.beyondco.de/Filament%20Json%20Field.png?theme=light&packageManager=composer+require&packageName=codebar-ag%2Ffilament-json-field&pattern=circuitBoard&style=style_2&description=A+Laravel+Filament Json Field+integration.&md=1&showWatermark=1&fontSize=150px&images=home&widths=500&heights=500">
+<img src="https://banners.beyondco.de/Filament%20Json%20Field.png?theme=light&packageManager=composer+require&packageName=codebar-ag%2Ffilament-json-field&pattern=circuitBoard&style=style_2&description=A+Laravel+Filament+Json+Field+integration.&md=1&showWatermark=1&fontSize=150px&images=home&widths=500&heights=500">
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/codebar-ag/filament-json-field.svg?style=flat-square)](https://packagist.org/packages/codebar-ag/filament-json-field)
 [![Total Downloads](https://img.shields.io/packagist/dt/codebar-ag/filament-json-field.svg?style=flat-square)](https://packagist.org/packages/codebar-ag/filament-json-field)
