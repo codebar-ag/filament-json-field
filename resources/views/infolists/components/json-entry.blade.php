@@ -17,12 +17,6 @@
                     ],
                 });
 
-                @php
-                    $state = $getState();
-
-                    ray($state);
-                @endphp
-
                 codeMirrorEditor.setSize(null, '100%');
                 codeMirrorEditor.setValue({{ json_encode(json_encode($getState(), JSON_PRETTY_PRINT), JSON_UNESCAPED_SLASHES) }} ?? '{}');
 
