@@ -16,15 +16,15 @@
                     autoCloseBrackets: {{ json_encode($getHasAutoCloseBrackets()) }},
                     viewportMargin: Infinity,
                     theme: '{{ $getHasDarkTheme() ? 'darcula' : 'default' }}',
-                    foldGutter: {{  json_encode($getHasFoldingCode()) }},
+                    foldGutter: {{ json_encode($getHasFoldingCode()) }},
                     @php
                         if($getHasFoldingCode()) {
                             echo "extraKeys: {'Ctrl-Q': function(cm) { cm.foldCode(cm.getCursor()); }},";
                         }
                     @endphp
                     gutters: [
-                        'CodeMirror-linenumbers',
-                        {{ json_encode($getHasFoldingCode()) }} ? 'CodeMirror-foldgutter' : ''
+                        {{ json_encode($getHasLineNumbers()) }} ? 'CodeMirror-linenumbers' : '',
+                        {{ json_encode($getHasFoldingCode()) }} ? 'CodeMirror-foldgutter' : '',
                     ],
                     foldOptions: {
                         widget: (from, to) => {

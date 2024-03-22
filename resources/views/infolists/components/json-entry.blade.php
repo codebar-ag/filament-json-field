@@ -13,7 +13,7 @@
                     autoCloseBrackets: {{ json_encode($getHasAutoCloseBrackets()) }},
                     viewportMargin: Infinity,
                     theme: '{{ $getHasDarkTheme() ? 'darcula' : 'default' }}',
-                    foldGutter: {{  json_encode($getHasFoldingCode()) }},
+                    foldGutter: {{ json_encode($getHasFoldingCode()) }},
                     @php
                         if($getHasFoldingCode()) {
                             echo "extraKeys: {'Ctrl-Q': function(cm) { cm.foldCode(cm.getCursor()); }},";
