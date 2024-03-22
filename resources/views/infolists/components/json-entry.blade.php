@@ -31,13 +31,13 @@
 
                             // Get open / close token
                             var startToken = '{', endToken = '}';
-                            var prevLine = codeMirrorEditor.getLine(from.line);
+                            var prevLine = {{ str_replace('.', '', $getId()) }}.getLine(from.line);
                             if (prevLine.lastIndexOf('[') > prevLine.lastIndexOf('{')) {
                                 startToken = '[', endToken = ']';
                             }
 
                             // Get json content
-                            var internal = codeMirrorEditor.getRange(from, to);
+                            var internal = {{ str_replace('.', '', $getId()) }}.getRange(from, to);
                             var toParse = startToken + internal + endToken;
 
                             // Get key count
