@@ -1,6 +1,6 @@
 <x-dynamic-component :component="$getEntryWrapperView()" :entry="$entry">
     <div
-        class="relative rounded-md"
+        style="position: relative; border-radius: 0.375rem;"
         x-cloak
     >
         <div
@@ -10,6 +10,7 @@
                     mode: 'application/json',
                     readOnly: true,
                     lineNumbers: {{ json_encode($getHasLineNumbers()) }},
+                    lineWrapping: {{ json_encode($getHasLineWrapping()) }},
                     autoCloseBrackets: {{ json_encode($getHasAutoCloseBrackets()) }},
                     viewportMargin: Infinity,
                     theme: '{{ $getHasDarkTheme() ? 'darcula' : 'default' }}',
@@ -50,7 +51,7 @@
                 });
 
                 codeMirrorEditor.setSize(null, '100%');
-                codeMirrorEditor.setValue({{ json_encode($getState()) }});
+                codeMirrorEditor.setValue({{ json_encode($getState()) }} ?? '{}');
 
                 setTimeout(function() {
                         codeMirrorEditor.refresh();
@@ -60,7 +61,6 @@
             <div
                 wire:ignore
                 x-ref="input"
-                class="w-full"
             ></div>
         </div>
     </div>

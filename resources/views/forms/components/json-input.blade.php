@@ -1,10 +1,14 @@
 <x-dynamic-component
     :component="$getFieldWrapperView()"
     :field="$field"
+
 >
+    @php
+        ray($getStatePath())
+    @endphp
     <div
         x-data="{ state: $wire.{{ $applyStateBindingModifiers("\$entangle('{$getStatePath()}')") }} }"
-        class="relative rounded-md"
+        style="position: relative; border-radius: 0.375rem;"
         x-cloak
     >
         <div
@@ -13,6 +17,7 @@
                 codeMirrorEditor = CodeMirror($refs.input, {
                     mode: 'application/json',
                     lineNumbers: {{ json_encode($getHasLineNumbers()) }},
+                    lineWrapping: {{ json_encode($getHasLineWrapping()) }},
                     autoCloseBrackets: {{ json_encode($getHasAutoCloseBrackets()) }},
                     viewportMargin: Infinity,
                     theme: '{{ $getHasDarkTheme() ? 'darcula' : 'default' }}',
@@ -52,8 +57,8 @@
                     }
                 });
 
-                codeMirrorEditor.setSize(null, '100%');
-                codeMirrorEditor.setValue(state);
+                codeMirrorEditor.setSize('100%', '100%');
+                codeMirrorEditor.setValue(state ?? '{}');
 
                 setTimeout(function() {
                         codeMirrorEditor.refresh();
@@ -65,7 +70,6 @@
             <div
                 wire:ignore
                 x-ref="input"
-                class="w-full"
             ></div>
         </div>
     </div>

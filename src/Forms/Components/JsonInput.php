@@ -6,6 +6,7 @@ use CodebarAg\FilamentJsonField\Concerns\HasAutoCloseBrackets;
 use CodebarAg\FilamentJsonField\Concerns\HasDarkTheme;
 use CodebarAg\FilamentJsonField\Concerns\HasFoldingCode;
 use CodebarAg\FilamentJsonField\Concerns\HasLineNumbers;
+use CodebarAg\FilamentJsonField\Concerns\HasLineWrapping;
 use Filament\Forms\Components\Concerns;
 use Filament\Forms\Components\Field;
 
@@ -16,6 +17,7 @@ class JsonInput extends Field
     use HasDarkTheme;
     use HasFoldingCode;
     use HasLineNumbers;
+    use HasLineWrapping;
 
     protected string $view = 'filament-json-field::forms.components.json-input';
 }
