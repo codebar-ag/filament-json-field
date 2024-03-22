@@ -6,12 +6,13 @@
         <div
             wire:ignore
             x-init="
-                codeMirrorEditor = CodeMirror($refs.input, {
+                {{ str_replace('.', '', $getId()) }} = CodeMirror($refs.{{ str_replace('.', '', $getId()) }}, {
                     mode: 'application/json',
                     readOnly: true,
                     lineNumbers: {{ json_encode($getHasLineNumbers()) }},
                     lineWrapping: {{ json_encode($getHasLineWrapping()) }},
                     autoCloseBrackets: {{ json_encode($getHasAutoCloseBrackets()) }},
+                    lineNumbers: {{ json_encode($getHasLineNumbers()) }},
                     viewportMargin: Infinity,
                     theme: '{{ $getHasDarkTheme() ? 'darcula' : 'default' }}',
                     foldGutter: {{ json_encode($getHasFoldingCode()) }},
@@ -50,17 +51,17 @@
                     }
                 });
 
-                codeMirrorEditor.setSize(null, '100%');
-                codeMirrorEditor.setValue({{ json_encode($getState()) }} ?? '{}');
+                {{ str_replace('.', '', $getId()) }}.setSize(null, '100%');
+                {{ str_replace('.', '', $getId()) }}.setValue({{ json_encode(json_encode($getState(), JSON_PRETTY_PRINT), JSON_UNESCAPED_SLASHES) }} ?? '{}');
 
                 setTimeout(function() {
-                        codeMirrorEditor.refresh();
+                        {{ str_replace('.', '', $getId()) }}.refresh();
                 }, 1);
             "
         >
             <div
                 wire:ignore
-                x-ref="input"
+                x-ref="{{ str_replace('.', '', $getId()) }}"
             ></div>
         </div>
     </div>
