@@ -38,6 +38,18 @@ it('can have line numbers code ', function () {
     expect($field->getHasLineNumbers())->toBe(true);
 });
 
+it('can have line wrapping code ', function () {
+    $field = JsonInput::make('json');
+
+    expect($field->getHasLineWrapping())->toBe(true);
+
+    $field->lineWrapping(false);
+    expect($field->getHasLineWrapping())->toBe(false);
+
+    $field->lineWrapping(true);
+    expect($field->getHasLineWrapping())->toBe(true);
+});
+
 it('can have code ', function () {
     $field = JsonInput::make('json');
 

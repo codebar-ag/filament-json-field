@@ -20,4 +20,13 @@ class JsonInput extends Field
     use HasLineWrapping;
 
     protected string $view = 'filament-json-field::forms.components.json-input';
+
+    public function setUp(): void
+    {
+        $this
+            ->rules(['array'])
+            ->validationMessages([
+                'array' => __('The :attribute must be valid JSON.'),
+            ]);
+    }
 }

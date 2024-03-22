@@ -3,9 +3,6 @@
     :field="$field"
 
 >
-    @php
-        ray($getStatePath())
-    @endphp
     <div
         x-data="{ state: $wire.{{ $applyStateBindingModifiers("\$entangle('{$getStatePath()}')") }} }"
         style="position: relative; border-radius: 0.375rem;"
@@ -58,13 +55,19 @@
                 });
 
                 codeMirrorEditor.setSize('100%', '100%');
-                codeMirrorEditor.setValue(state ?? '{}');
+                codeMirrorEditor.setValue({{ json_encode(json_encode($getState(), JSON_PRETTY_PRINT), JSON_UNESCAPED_SLASHES) }} ?? '{}');
 
                 setTimeout(function() {
                         codeMirrorEditor.refresh();
                 }, 1);
 
-                codeMirrorEditor.on('change', () => state = codeMirrorEditor.getValue())
+                codeMirrorEditor.on('change', function () {
+                    try {
+                        state = JSON.parse(codeMirrorEditor.getValue())
+                    } catch (e) {
+                        state = codeMirrorEditor.getValue();
+                    }
+                });
             "
         >
             <div

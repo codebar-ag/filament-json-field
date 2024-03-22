@@ -10,48 +10,21 @@
                     mode: 'application/json',
                     readOnly: true,
                     lineNumbers: {{ json_encode($getHasLineNumbers()) }},
-                    lineWrapping: {{ json_encode($getHasLineWrapping()) }},
-                    autoCloseBrackets: {{ json_encode($getHasAutoCloseBrackets()) }},
                     viewportMargin: Infinity,
                     theme: '{{ $getHasDarkTheme() ? 'darcula' : 'default' }}',
-                    foldGutter: {{ json_encode($getHasFoldingCode()) }},
-                    @php
-                        if($getHasFoldingCode()) {
-                            echo "extraKeys: {'Ctrl-Q': function(cm) { cm.foldCode(cm.getCursor()); }},";
-                        }
-                    @endphp
                     gutters: [
                         {{ json_encode($getHasLineNumbers()) }} ? 'CodeMirror-linenumbers' : '',
-                        {{ json_encode($getHasFoldingCode()) }} ? 'CodeMirror-foldgutter' : '',
                     ],
-                    foldOptions: {
-                        widget: (from, to) => {
-                            var count = undefined;
-
-                            // Get open / close token
-                            var startToken = '{', endToken = '}';
-                            var prevLine = codeMirrorEditor.getLine(from.line);
-                            if (prevLine.lastIndexOf('[') > prevLine.lastIndexOf('{')) {
-                                startToken = '[', endToken = ']';
-                            }
-
-                            // Get json content
-                            var internal = codeMirrorEditor.getRange(from, to);
-                            var toParse = startToken + internal + endToken;
-
-                            // Get key count
-                            try {
-                                var parsed = JSON.parse(toParse);
-                                count = Object.keys(parsed).length;
-                            } catch(e) { }
-
-                            return count ? `\u21A4${count}\u21A6` : '\u2194';
-                        }
-                    }
                 });
 
+                @php
+                    $state = $getState();
+
+                    ray($state);
+                @endphp
+
                 codeMirrorEditor.setSize(null, '100%');
-                codeMirrorEditor.setValue({{ json_encode($getState()) }} ?? '{}');
+                codeMirrorEditor.setValue({{ json_encode(json_encode($getState(), JSON_PRETTY_PRINT), JSON_UNESCAPED_SLASHES) }} ?? '{}');
 
                 setTimeout(function() {
                         codeMirrorEditor.refresh();
