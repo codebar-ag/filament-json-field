@@ -11,7 +11,7 @@
         <div
             wire:ignore
             x-init="
-                codeMirrorEditor = CodeMirror($refs.input, {
+                {{ str_replace('.', '', $getId()) }} = CodeMirror($refs.{{ str_replace('.', '', $getId()) }}, {
                     mode: 'application/json',
                     lineNumbers: {{ json_encode($getHasLineNumbers()) }},
                     lineWrapping: {{ json_encode($getHasLineWrapping()) }},
@@ -54,25 +54,25 @@
                     }
                 });
 
-                codeMirrorEditor.setSize('100%', '100%');
-                codeMirrorEditor.setValue({{ json_encode(json_encode($getState(), JSON_PRETTY_PRINT), JSON_UNESCAPED_SLASHES) }} ?? '{}');
+                {{ str_replace('.', '', $getId()) }}.setSize('100%', '100%');
+                {{ str_replace('.', '', $getId()) }}.setValue({{ json_encode(json_encode($getState(), JSON_PRETTY_PRINT), JSON_UNESCAPED_SLASHES) }} ?? '{}');
 
                 setTimeout(function() {
-                        codeMirrorEditor.refresh();
+                        {{ str_replace('.', '', $getId()) }}.refresh();
                 }, 1);
 
-                codeMirrorEditor.on('change', function () {
+                {{ str_replace('.', '', $getId()) }}.on('change', function () {
                     try {
-                        state = JSON.parse(codeMirrorEditor.getValue())
+                        state = JSON.parse({{ str_replace('.', '', $getId()) }}.getValue())
                     } catch (e) {
-                        state = codeMirrorEditor.getValue();
+                        state = {{ str_replace('.', '', $getId()) }}.getValue();
                     }
                 });
             "
         >
             <div
                 wire:ignore
-                x-ref="input"
+                x-ref="{{ str_replace('.', '', $getId()) }}"
             ></div>
         </div>
     </div>
