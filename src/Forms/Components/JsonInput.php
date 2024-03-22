@@ -23,6 +23,8 @@ class JsonInput extends Field
 
     public function setUp(): void
     {
+        parent::setUp();
+
         $this
             ->rules(['array'])
             ->validationMessages([
