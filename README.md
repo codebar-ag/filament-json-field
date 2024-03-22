@@ -43,6 +43,7 @@ public function form(Form $form): Form
             JsonInput::make('json')
                 ->label('JSON')
                 ->lineNumbers(true)
+                ->lineWrapping(true)
                 ->autoCloseBrackets(true)
                 ->darkTheme(true)
                 ->foldingCode(true),
