@@ -5,7 +5,7 @@
 >
     <div
         x-data="{ state: $wire.{{ $applyStateBindingModifiers("\$entangle('{$getStatePath()}')") }} }"
-        style="position: relative; border-radius: 0.375rem;"
+        style="position: relative; border-radius: 0.375rem; overflow-x: scroll;"
         x-cloak
     >
         <div

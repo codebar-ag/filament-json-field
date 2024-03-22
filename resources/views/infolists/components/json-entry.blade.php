@@ -1,6 +1,6 @@
 <x-dynamic-component :component="$getEntryWrapperView()" :entry="$entry">
     <div
-        style="position: relative; border-radius: 0.375rem;"
+        style="position: relative; border-radius: 0.375rem; overflow-x: scroll;"
         x-cloak
     >
         <div
