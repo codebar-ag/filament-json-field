@@ -1,6 +1,6 @@
 <x-dynamic-component :component="$getEntryWrapperView()" :entry="$entry">
     <div
-        style="position: relative; border-radius: 0.375rem;"
+        style="position: relative; border-radius: 0.375rem; overflow-x: scroll;"
         x-cloak
     >
         <div
@@ -31,13 +31,13 @@
 
                             // Get open / close token
                             var startToken = '{', endToken = '}';
-                            var prevLine = codeMirrorEditor.getLine(from.line);
+                            var prevLine = {{ str_replace('.', '', $getId()) }}.getLine(from.line);
                             if (prevLine.lastIndexOf('[') > prevLine.lastIndexOf('{')) {
                                 startToken = '[', endToken = ']';
                             }
 
                             // Get json content
-                            var internal = codeMirrorEditor.getRange(from, to);
+                            var internal = {{ str_replace('.', '', $getId()) }}.getRange(from, to);
                             var toParse = startToken + internal + endToken;
 
                             // Get key count

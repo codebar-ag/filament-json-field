@@ -83,10 +83,7 @@
         "laravel": {
             "providers": [
                 "CodebarAg\\FilamentJsonField\\FilamentJsonFieldServiceProvider"
-            ],
-            "aliases": {
-                "FilamentJsonField": "CodebarAg\\FilamentJsonField\\Facades\\FilamentJsonField"
-            }
+            ]
         }
     },
     "minimum-stability": "dev",
