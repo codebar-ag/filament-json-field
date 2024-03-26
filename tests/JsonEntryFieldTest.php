@@ -14,6 +14,18 @@ it('can have folding code ', function () {
     expect($field->getHasFoldingCode())->toBe(true);
 });
 
+it('can have folded code ', function () {
+    $field = JsonEntry::make('json');
+
+    expect($field->getHasFoldedCode())->toBe(false);
+
+    $field->foldedCode(false);
+    expect($field->getHasFoldedCode())->toBe(false);
+
+    $field->foldedCode(true);
+    expect($field->getHasFoldedCode())->toBe(true);
+});
+
 it('can have auto closing brackets code ', function () {
     $field = JsonEntry::make('json');
 
