@@ -7,6 +7,7 @@ use Closure;
 trait HasFoldingCode
 {
     protected bool|Closure $hasFoldingCode = true;
+
     protected bool|Closure $hasFoldedCode = false;
 
     public function foldingCode(bool|Closure $condition = true): static
