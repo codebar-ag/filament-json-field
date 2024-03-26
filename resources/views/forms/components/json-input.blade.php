@@ -57,6 +57,12 @@
                 {{ str_replace('.', '', $getId()) }}.setSize('100%', '100%');
                 {{ str_replace('.', '', $getId()) }}.setValue({{ json_encode(json_encode($getState(), JSON_PRETTY_PRINT), JSON_UNESCAPED_SLASHES) }} ?? '{}');
 
+                @php
+                    if($getHasFoldedCode()) {
+                        echo str_replace('.', '', $getId()) . ".foldCode(CodeMirror.Pos(0, 0));";
+                    }
+                @endphp
+
                 setTimeout(function() {
                         {{ str_replace('.', '', $getId()) }}.refresh();
                 }, 1);
