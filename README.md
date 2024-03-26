@@ -46,7 +46,8 @@ public function form(Form $form): Form
                 ->lineWrapping(true)
                 ->autoCloseBrackets(true)
                 ->darkTheme(true)
-                ->foldingCode(true),
+                ->foldingCode(true)
+                ->foldedCode(true), // Folded code will fold the code on form load
         ]);
 }
 ...
@@ -65,9 +66,11 @@ public function form(Form $form): Form
             JsonEntry::make('json')
                 ->label('JSON')
                 ->lineNumbers(true)
+                ->lineWrapping(true)
                 ->autoCloseBrackets(true)
                 ->darkTheme(true)
-                ->foldingCode(true),
+                ->foldingCode(true)
+                ->foldedCode(true), // Folded code will fold the code on form load
         ]);
 }
 ...
