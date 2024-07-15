@@ -5,8 +5,6 @@
 [![run-tests](https://github.com/codebar-ag/filament-json-field/actions/workflows/run-tests.yml/badge.svg)](https://github.com/codebar-ag/filament-json-field/actions/workflows/run-tests.yml)
 [![PHPStan](https://github.com/codebar-ag/filament-json-field/actions/workflows/phpstan.yml/badge.svg)](https://github.com/codebar-ag/filament-json-field/actions/workflows/phpstan.yml)
 
-This package was developed to give you a quick start to creating tickets via the Filament Json Field API.
-
 ## 💡 What is Filament Json Field?
 
 Filament Json Field is a Filament wrapper for Codemirror.
@@ -55,7 +53,7 @@ public function form(Form $form): Form
 
 Infolists:
 ```php
-use CodebarAg\FilamentJsonField\Forms\Components\JsonEntry;
+use CodebarAg\FilamentJsonField\Infolists\Components\JsonEntry;
 
 ...
 
